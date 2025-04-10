@@ -1,0 +1,5 @@
+# To romove the check point directory
+rm -rf /Users/kramkrishnaachary/Learning/Github/structured-streaming/checkpointdir01
+
+# start the socket 
+nc -lk 9988
