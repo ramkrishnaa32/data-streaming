@@ -35,3 +35,11 @@ aggregated_orders.createOrReplaceTempView("orders_aggregated")
 
 spark.sql("select * from orders_aggregated where customer_id = 256").show()
 
+aggregated_orders \
+.repartition(1) \
+.write \
+.format("csv") \
+.mode("overwrite") \
+.option("header", True) \
+.option("path", "data/aggregated/output/") \
+.save()
