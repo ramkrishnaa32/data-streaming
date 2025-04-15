@@ -29,6 +29,7 @@ if __name__ == '__main__':
     query = completed_orders.writeStream \
                  .format("json") \
                  .outputMode("append") \
+                 .trigger(processingTime = '20 Seconds') \
                  .option("path", "data/outputdir") \
                  .option("checkpointLocation", "checkpointdir01") \
                  .start()
